@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Mercadopago Issue Reproduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+How to check:
+- `npm install`
+- Add a valid test key in [App.js](src/App.js): `initMercadoPago('TEST-...');`
+- `npm start` to run the server
+- `npm test` to run the cypress script, the output will override the sample video. If you want to run the test in live mode just run npm run cypress and select the only e2e test defined.
 
-## Available Scripts
+You can see the recording of the execution in: [cypress/videos/issue.cy.js.mp4](cypress/videos/issue.cy.js.mp4)
 
-In the project directory, you can run:
+You can see the details of the inputs in the test [cypress/e2e/issue.cy.js](cypress/e2e/issue.cy.js).
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This is a sample of the preference in case it needs to be recreated:
+```
+{
+    "external_reference": "64c7cd87be49fd89f65345e2",
+    "items": [
+        {
+            "id": "646cc96459d69ee232165ea8",
+            "title": "Harry Potter y la Piedra Filosofal Ilustrado Tapa Blanda",
+            "description": "Una maravillosa edición, ilustrada por Jim Kay, del primer volumen de la serie de Harry Potter.\r\n\r\nLa vida de Harry Potter cambia para siempre el día que cumple once años, cuando el gigante de ojos negros y brillantes Rubeus Hagrid le entrega una car...",
+            "picture_url": "https://contents.p2pbookstore.com/books/9788498389470.jpg",
+            "category_id": "entertainment",
+            "quantity": 1,
+            "currency_id": "UYU",
+            "unit_price": 545
+        }
+    ],
+    "payer": {
+        "email": "sxmozg5z52@1secmail.com",
+        "date_created": "2023-07-31T15:11:07.000Z",
+        "phone": {
+            "area_code": "",
+            "number": 99123456
+        }
+    },
+    "statement_descriptor": "P2P Bookstore",
+    "auto_return": "approved",
+    "notification_url": "https//develop-webhooks.p2pbookstore.com/YUu8QajjLp5n8GjO7y7t/mercadopago/64c7cd87be49fd89f65345e2",
+    "back_urls": {
+        "success": "http://localhost:3000/es/compra-exitosa",
+        "failure": "http://localhost:3000/es/compra-fallida",
+        "pending": "http://localhost:3000/es/compra-pendiente"
+    }
+}
+```
