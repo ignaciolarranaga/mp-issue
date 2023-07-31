@@ -1,23 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+
+import { Wallet, initMercadoPago } from '@mercadopago/sdk-react';
+
+initMercadoPago('TEST-...');
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Wallet initialization={{ preferenceId: '8640843-fc2c72db-dcb6-43c1-a515-8d6463c0278c' }} />
     </div>
   );
 }
