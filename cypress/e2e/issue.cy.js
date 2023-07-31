@@ -80,6 +80,8 @@ describe('template spec', () => {
         cy.get(
           'button[name="[ui_components][group_sidebar][summary_group][group_captcha][group_pay][disabled_button][pay]"]'
         ).click();
+
+        cy.contains('a', 'Volver al sitio', { timeout: 10000 }).should('exist');
       }
     );
     // spellchecker: enable
